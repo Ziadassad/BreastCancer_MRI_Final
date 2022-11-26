@@ -12,7 +12,7 @@ from fvcore.common.param_scheduler import (
     StepWithFixedGammaParamScheduler,
 )
 
-from detectron2.config import CfgNode
+from detectron.detectron2.config import CfgNode
 
 from .lr_scheduler import LRMultiplier, WarmupParamScheduler
 

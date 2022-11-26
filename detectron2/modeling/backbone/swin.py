@@ -18,7 +18,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.utils.checkpoint as checkpoint
 
-from detectron2.modeling.backbone.backbone import Backbone
+from detectron.detectron2.modeling.backbone.backbone import Backbone
 
 from timm.models.layers import DropPath, to_2tuple, trunc_normal_
 

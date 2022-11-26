@@ -6,7 +6,7 @@ import inspect
 import logging
 from fvcore.common.config import CfgNode as _CfgNode
 
-from detectron2.utils.file_io import PathManager
+from detectron.detectron2.utils.file_io import PathManager
 
 
 class CfgNode(_CfgNode):
@@ -42,6 +42,7 @@ class CfgNode(_CfgNode):
             cfg_filename: config filename
             allow_unsafe: allow unsafe yaml syntax
         """
+
         assert PathManager.isfile(cfg_filename), f"Config file '{cfg_filename}' does not exist!"
         loaded_cfg = self.load_yaml_with_base(cfg_filename, allow_unsafe=allow_unsafe)
         loaded_cfg = type(self)(loaded_cfg)

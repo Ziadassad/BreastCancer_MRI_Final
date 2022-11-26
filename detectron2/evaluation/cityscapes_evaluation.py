@@ -8,9 +8,9 @@ from collections import OrderedDict
 import torch
 from PIL import Image
 
-from detectron2.data import MetadataCatalog
-from detectron2.utils import comm
-from detectron2.utils.file_io import PathManager
+from detectron.detectron2.data import MetadataCatalog
+from detectron.detectron2.utils import comm
+from detectron.detectron2.utils.file_io import PathManager
 
 from .evaluator import DatasetEvaluator
 
