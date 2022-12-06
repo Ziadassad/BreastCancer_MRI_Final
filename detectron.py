@@ -32,6 +32,7 @@ for d in ["train", "val"]:
 
 
 def prediction_type(inpu_image):
+    print("yessssssssssssssssssssssssss")
 
     class_name = ['stable', 'crumble', 'shrink', 'progression', 'diffuse enhancement', 'complete response']
 
@@ -41,17 +42,20 @@ def prediction_type(inpu_image):
     predictor = DefaultPredictor(cfg)
     outputs = predictor(inpu_image)
     print(outputs['instances'].scores)
+    print(outputs)
     v = Visualizer(inpu_image[:, :, ::-1],
                    # metadata=test_metadata,
                    scale=0.8
                    )
 
     index = outputs['instances'].pred_classes.tolist()
+    print(index)
     accuracy = outputs['instances'].scores.tolist()[0]
     # print(class_name[index[0]], "%{:.0f}".format(accuracy * 100))
     name_class = class_name[index[0]]
     out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
     # cv2_imshow(out.get_image()[:, :, ::-1])
+    print(name_class)
     return out.get_image()[:, :, ::-1], name_class
     # plt.show()
 
