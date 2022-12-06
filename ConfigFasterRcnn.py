@@ -32,18 +32,18 @@ def custom_config3(num_classes):
     # # DATASETS
     cfg.OUTPUT_DIR = "./detectron/FasterRcnn"
     cfg.DATALOADER.NUM_WORKERS = 2
-    cfg.SOLVER.IMS_PER_BATCH = 2
+    cfg.SOLVER.IMS_PER_BATCH = 1
     cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 64
 
     return cfg
 
-# for d in ["train", "val"]:
-#     register_coco_instances("faster_{}".format(d), {}, "./detectron/WLE/" + d + "/" + d + ".json", "./detectron/WLE/" + d)
-#     MetadataCatalog.get("faster_{}".format(d))
+for d in ["train", "val"]:
+    register_coco_instances("faster_{}".format(d), {}, "./detectron/WLE/" + d + "/" + d + ".json", "./detectron/WLE/" + d)
+    MetadataCatalog.get("faster_{}".format(d))
 
 if __name__ == '__main__':
-    cfg = custom_config3(6)
+    cfg = custom_config3(7)
     os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
     trainer = DefaultTrainer(cfg)
     trainer.resume_or_load(resume=False)
-    trainer.train()
+    # trainer.train()
